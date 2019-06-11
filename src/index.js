@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const typeDefs = require('./graphql-schema/schema');
 const resolvers = require('./resolvers');
 
-const uri = process.env.MONOGDB_URI || 'mongodb://localhost:27017/our_baby';
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/our_baby';
 mongoose.connect(uri, { useNewUrlParser: true });
 
 const getUser = (token) => {
