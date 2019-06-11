@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "start:dev": "NODE_MONGODB=mongodb://localhost:27017/our_baby NODE_JWT_SECRET=susan nodemon src/index.js",
+    "start:dev": "NODE_JWT_SECRET=susan nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
