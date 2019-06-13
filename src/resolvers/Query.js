@@ -17,6 +17,14 @@ module.exports = {
       return err;
     }
   },
+  checkLogin: (_, args, context) => {
+    try {
+      isAuthenticated(context);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  },
   getUser: async (_, args, context) => {
     try {
       isAuthenticated(context);

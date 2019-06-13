@@ -10,7 +10,7 @@ mongoose.connect(uri, { useNewUrlParser: true });
 
 const getUser = (token) => {
   try {
-    if (!token) return;
+    if (!token || token === 'null') return null;
     const user = jwt.verify(token.split("Bearer ")[1], process.env.NODE_JWT_SECRET);
     return user;
   } catch (err) {

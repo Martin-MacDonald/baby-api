@@ -16,6 +16,7 @@ module.exports = gql`
   }
   type Query {
     login(email: String!, password: String!): Token
+    checkLogin: Boolean
     getUser: User
   }
 `;
