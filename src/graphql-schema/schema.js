@@ -11,11 +11,12 @@ module.exports = gql`
     email: String
     parentType: String
   }
-  type Token {
+  type LoginRes {
     token: String
+    user: User
   }
   type Query {
-    login(email: String!, password: String!): Token
+    login(email: String!, password: String!): LoginRes
     checkLogin: Boolean
     getUser: User
   }

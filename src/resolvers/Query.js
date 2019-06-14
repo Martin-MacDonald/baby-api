@@ -11,7 +11,7 @@ module.exports = {
       const isMatch = await user.comparePassword(password);
       if (!isMatch) throw new Error('user sign-in credentials not valid');
       const token = jwt.sign({ id: user.id }, process.env.NODE_JWT_SECRET);
-      return { token };
+      return { token, user };
     } catch (err) {
       console.log(err);
       return err;
