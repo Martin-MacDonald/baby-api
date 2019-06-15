@@ -15,9 +15,25 @@ module.exports = gql`
     token: String
     user: User
   }
+  type AppointmentType {
+    id: ID
+    type: String
+  }
+  type Appointment {
+    id: ID
+    appointmentType: AppointmentType
+    date: String
+    description: String
+    location: String
+  }
   type Query {
     login(email: String!, password: String!): LoginRes
     checkLogin: Boolean
     getUser: User
+    getAppointments: [Appointment]
+    getAppointmentTypes: [AppointmentType]
+  }
+  type Mutation {
+    addAppointment(appointmentType: ID!, date: String!, description: String!, location: String!): Boolean
   }
 `;
