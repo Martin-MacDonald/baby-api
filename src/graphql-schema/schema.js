@@ -26,14 +26,20 @@ module.exports = gql`
     description: String
     location: String
   }
+  type BabyName {
+    id: ID
+    name: String
+  }
   type Query {
     login(email: String!, password: String!): LoginRes
     checkLogin: Boolean
     getUser: User
     getAppointments: [Appointment]
     getAppointmentTypes: [AppointmentType]
+    getNames: [BabyName]
   }
   type Mutation {
     addAppointment(appointmentType: ID!, date: String!, description: String!, location: String!): Boolean
+    addName(name: String!): Boolean
   }
 `;

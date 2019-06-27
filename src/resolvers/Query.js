@@ -1,6 +1,7 @@
 const User = require('../mongoose-schema/User');
 const Appointment = require('../mongoose-schema/Appointment');
 const AppointmentType = require('../mongoose-schema/AppointmentType');
+const BabyName = require('../mongoose-schema/BabyName');
 const jwt = require('jsonwebtoken');
 const isAuthenticated = require('../authentication/auth');
 
@@ -53,6 +54,16 @@ module.exports = {
       isAuthenticated(context);
       const appointmentTypes = await AppointmentType.find({}).exec();
       return appointmentTypes;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  },
+  getNames: async (_, args, context) => {
+    try {
+      isAuthenticated(context);
+      const names = await BabyName.find({}).exec();
+      return names;
     } catch (err) {
       console.log(err);
       return err;
