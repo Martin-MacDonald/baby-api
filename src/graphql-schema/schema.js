@@ -30,6 +30,11 @@ module.exports = gql`
     id: ID
     name: String
   }
+  type ShoppingItem {
+    id: ID
+    shoppingItem: String
+    bought: Boolean
+  }
   type Query {
     login(email: String!, password: String!): LoginRes
     checkLogin: Boolean
@@ -37,9 +42,11 @@ module.exports = gql`
     getAppointments: [Appointment]
     getAppointmentTypes: [AppointmentType]
     getNames: [BabyName]
+    getShoppingItems: [ShoppingItem]
   }
   type Mutation {
     addAppointment(appointmentType: ID!, date: String!, description: String!, location: String!): Boolean
     addName(name: String!): Boolean
+    addShoppingItem(shoppingItem: String!): Boolean
   }
 `;
